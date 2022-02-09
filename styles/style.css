@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url("https://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg") center/auto no-repeat fixed;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.container .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .menu h1 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.container .menu .lang {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.container .menu .lang a {
+  color: white;
+  margin: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.container .row .column {
+  width: 239.996px;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
+}
+
+.container .row .column:hover {
+  -webkit-filter: brightness(1.3);
+          filter: brightness(1.3);
+}
+
+.container .row .column:hover .preview {
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(104, 104, 104, 0.5);
+          box-shadow: 5px 5px 20px 5px rgba(104, 104, 104, 0.5);
+}
+
+.container .row .column .preview {
+  -webkit-transition: -webkit-box-shadow 0.5s;
+  transition: -webkit-box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
+  position: relative;
+  width: 15rem;
+  height: 10rem;
+}
+
+.container .row .column .preview::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url("../img/preview_bg.jpg") center/auto;
+}
+
+.container .row .column .preview a img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.container .row .column .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .row .column .bottom .avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0.5rem 0.25rem;
+  position: relative;
+}
+
+.container .row .column .bottom .avatar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url("../img/avatar-person.svg") center/auto;
+}
+
+.container .row .column .bottom .avatar img {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.container .row .column .bottom .intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  margin: 0.5rem 0.25rem;
+}
+
+.container .row .column .bottom .intro .channel_name {
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container .row .column .bottom .intro .streamer_name {
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=style.css.map */
