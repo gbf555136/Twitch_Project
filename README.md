@@ -3,7 +3,7 @@
 Twitch的英雄聯盟實況台列表
 ![2022-02-10_065445](https://user-images.githubusercontent.com/92734689/153304800-341092a7-c035-4814-b4e5-f487538abd47.png)
 
-使用 `jQuery` 插件
+使用 `jQuery` 插件串接Twitch API
 
 ## 說明
 
