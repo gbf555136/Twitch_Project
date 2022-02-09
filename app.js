@@ -10,12 +10,13 @@ let timer;
 
 $(() => {
   getStreams();
-  //下拉到底部就再讀取實況
+  //下拉到底部後，讀取更多實況
   $(window).on("scroll", () => {
     if (
       $(window).scrollTop() + $(window).height() >=
       $(document).height() - 200
     ) {
+      //設置setTimeout防抖
       clearTimeout(timer);
       timer = setTimeout(() => {
         getStreams();
@@ -101,7 +102,7 @@ function getUsers(streams) {
 function getColumn(streams, users) {
   for (const stream_data of streams.data) {
     for (const user_data of users.data) {
-      //要按照stream_data的user_id順序排列
+      //按照stream_data的user_id順序排列
       if (stream_data.user_id === user_data.id) {
         let thumbnail = stream_data.thumbnail_url;
         let set_thumbnail = thumbnail.replace("-{width}x{height}", "");
