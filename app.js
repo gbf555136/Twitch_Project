@@ -4,7 +4,7 @@ const streams_url = "https://api.twitch.tv/helix/streams";
 const users_url = "https://api.twitch.tv/helix/users";
 const game_id = 21779;
 let language = "zh";
-const load_num = 20;
+const load_num = 18;
 let now_index = "";
 let timer;
 
@@ -16,7 +16,7 @@ $(() => {
       $(window).scrollTop() + $(window).height() >=
       $(document).height() - 200
     ) {
-      //設置setTimeout防抖
+      //設置setTimeout防抖動
       clearTimeout(timer);
       timer = setTimeout(() => {
         getStreams();
@@ -36,8 +36,11 @@ function setLang(lang) {
   //set title
   $(".container .menu h1").text(window.I18N[lang].title);
   //clear current stream
-  $(".container .row").html(`<div id="empty" class="column"></div>
-  <div class="column"></div>`);
+  $(".container .row").html(
+    `<div id="empty" class="column"></div>
+  <div class="column"></div>
+  <div class="column"></div>`
+  );
   language = lang;
   now_index = "";
   getStreams();
@@ -104,13 +107,15 @@ function getColumn(streams, users) {
     for (const user_data of users.data) {
       //按照stream_data的user_id順序排列
       if (stream_data.user_id === user_data.id) {
-        let thumbnail = stream_data.thumbnail_url;
-        let set_thumbnail = thumbnail.replace("-{width}x{height}", "");
+        let thumbnail_url = stream_data.thumbnail_url.replace(
+          "-{width}x{height}",
+          ""
+        );
         let column = $(
           `<div class="column">
             <div class="preview">
               <a href="https://www.twitch.tv/${stream_data.user_login}"><img
-                src="${set_thumbnail}"
+                src="${thumbnail_url}"
                 alt=""
                 onload="this.style.opacity=1"
               /></a>
@@ -132,6 +137,7 @@ function getColumn(streams, users) {
         );
         //insert before empty div
         $(column).insertBefore($("#empty"));
+        continue;
       }
     }
   }

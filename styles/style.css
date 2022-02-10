@@ -72,7 +72,7 @@ body {
 }
 
 .container .row .column {
-  width: 239.996px;
+  width: 240px;
   -webkit-transition: -webkit-filter 0.5s;
   transition: -webkit-filter 0.5s;
   transition: filter 0.5s;
