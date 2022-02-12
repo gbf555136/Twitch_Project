@@ -6,6 +6,8 @@
 
 - 使用`SCSS`及`jQuery` 套件
 
+- `RWD`排版
+
 ## 說明
 
 - 串接[Twitch](https://www.twitch.tv/directory/game/League%20of%20Legends) 的API顯示英雄聯盟實況列表
