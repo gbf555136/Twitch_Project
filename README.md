@@ -10,7 +10,7 @@
 
 ## 說明
 
-- 串接[Twitch](https://www.twitch.tv/directory/game/League%20of%20Legends) 的API顯示英雄聯盟實況列表
+- 串接[Twitch](https://www.twitch.tv/directory/game/League%20of%20Legends) 的API，顯示英雄聯盟實況列表
 
 - 可切換中文 or 英文實況
 
