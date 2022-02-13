@@ -4,7 +4,7 @@
 
 - [Demo](https://gbf555136.github.io/Twitch_Project/)
 
-- 使用`SCSS`、`jQuery` 套件
+- 使用`SCSS`、`JQuery` 套件
 
 - `RWD`排版
 
