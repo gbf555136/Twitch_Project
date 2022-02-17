@@ -8,27 +8,45 @@
     <meta name="robots" content="index,follow" />
     <meta name="author" content="Yu Sheng" />
     <base target="_blank" />
+    <script
+      src="https://kit.fontawesome.com/1fd5775baf.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <div class="bg"></div>
     <div class="container">
       <div class="menu">
-        <h1>英雄聯盟</h1>
+        <div class="title">
+          <h1>League of Legends</h1>
+        </div>
         <div class="lang">
-          <a class="zh">中文</a>
-          <a class="en">English</a>
+          <ul>
+            <li>
+              <button class="zh">中文</button>
+            </li>
+            <li>
+              <button class="en">English</button>
+            </li>
+            <li>
+              <button class="ja">日本語</button>
+            </li>
+            <li>
+              <button class="ko">한국어</button>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row">
-        <!-- 放空div讓排版保持一致 -->
-        <div id="empty" class="column"></div>
-        <div class="column"></div>
-        <div class="column"></div>
+        <!-- 放空的div讓排版保持一致 -->
+        <div id="empty" class="column empty"></div>
+        <div class="column empty"></div>
+        <div class="column empty"></div>
       </div>
     </div>
   </body>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./lang-en.js"></script>
-  <script src="./lang-zh.js"></script>
   <script src="./app.js"></script>
 </html>

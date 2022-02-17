@@ -10,13 +10,13 @@ let timer;
 
 $(() => {
   getStreams();
-  //下拉到底部後，讀取更多實況
+  //detect scroll bottom
   $(window).on("scroll", () => {
     if (
       $(window).scrollTop() + $(window).height() >=
       $(document).height() - 200
     ) {
-      //設置setTimeout防抖動
+      //Anti-shake
       clearTimeout(timer);
       timer = setTimeout(() => {
         getStreams();
@@ -24,29 +24,31 @@ $(() => {
     }
   });
   //switch language
-  $(".lang a").on("click", (e) => {
+  $(".lang button").on("click", (e) => {
     let stream_lang = $(e.target).attr("class");
     setLang(stream_lang);
+  });
+
+  $(".intro .streamer_name").on("click", (e) => {
+    console.log("123");
   });
 });
 
 function setLang(lang) {
   //if same language, dont reload
   if (language === lang) return;
-  //set title
-  $(".container .menu h1").text(window.I18N[lang].title);
   //clear current stream
   $(".container .row").html(
-    `<div id="empty" class="column"></div>
-  <div class="column"></div>
-  <div class="column"></div>`
+    `<div id="empty" class="column empty"></div>
+    <div class="column empty"></div>
+    <div class="column empty"></div>`
   );
   language = lang;
   now_index = "";
   getStreams();
 }
 
-//抓實況資料
+//get live streams
 function getStreams() {
   //check end
   if (now_index === undefined) return;
@@ -64,6 +66,7 @@ function getStreams() {
     },
     success: function (streams) {
       now_index = streams.pagination.cursor;
+      console.log(streams);
       getUsers(streams);
     },
     error: function (xhr) {
@@ -73,11 +76,12 @@ function getStreams() {
   });
 }
 
-//抓實況主資料
+//get live streamers
 function getUsers(streams) {
   //check end
   if (streams.data.length === 0) return;
   let user_ids = [];
+
   for (const stream_data of streams.data) {
     user_ids.push(stream_data.user_id);
   }
@@ -92,6 +96,7 @@ function getUsers(streams) {
       id: user_ids,
     },
     success: function (users) {
+      // console.log(users);
       getColumn(streams, users);
     },
     error: function (xhr) {
@@ -107,9 +112,10 @@ function getColumn(streams, users) {
     for (const user_data of users.data) {
       //按照stream_data的user_id順序排列
       if (stream_data.user_id === user_data.id) {
+        //modify thumbnail width and height
         let thumbnail_url = stream_data.thumbnail_url.replace(
-          "-{width}x{height}",
-          ""
+          "{width}x{height}",
+          "480x270"
         );
         let column = $(
           `<div class="column">
@@ -117,20 +123,28 @@ function getColumn(streams, users) {
               <a href="https://www.twitch.tv/${stream_data.user_login}"><img
                 src="${thumbnail_url}"
                 alt=""
-                onload="this.style.opacity=1"
+                onload="handlePreviewLoad(this)"
               /></a>
+              <div class="viewer">
+                <i class="fa-solid fa-user"></i>
+                <span>${stream_data.viewer_count}</span>
+              </div>
             </div>
             <div class="bottom">
               <div class="avatar">
                 <img
                   src="${user_data.profile_image_url}"
                   alt=""
-                  onload="this.style.opacity=1"
+                  onload="handleTargetLoad(this)"
                 />
               </div>
               <div class="intro">
-                <div class="channel_name" title="${stream_data.title}">${stream_data.title}</div>
-                <div class="streamer_name" title="${stream_data.user_name}">${stream_data.user_name}</div>
+                <div class="channel_name" title="${stream_data.title}">
+                  ${stream_data.title}
+                </div>
+                <div class="streamer_name" title="${stream_data.user_name}">
+                  ${stream_data.user_name}
+                </div>
               </div>
             </div>
           </div>`
@@ -141,4 +155,14 @@ function getColumn(streams, users) {
       }
     }
   }
+}
+
+function handlePreviewLoad(target) {
+  $(target).css("opacity", "1");
+  let viewer = $(target).parent().parent().children()[1];
+  $(viewer).css("opacity", "1");
+}
+
+function handleTargetLoad(target) {
+  $(target).css("opacity", "1");
 }
