@@ -10,8 +10,8 @@ let timer;
 
 $(() => {
   getStreams();
-  //detect scroll bottom
   $(window).on("scroll", () => {
+    //detect scroll bottom
     if (
       $(window).scrollTop() + $(window).height() >=
       $(document).height() - 200
