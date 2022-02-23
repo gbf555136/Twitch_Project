@@ -2,7 +2,7 @@
 
 ![2022-02-17_202247](https://user-images.githubusercontent.com/92734689/154481061-d9e4d09e-08ee-44ba-a712-2ad08271046a.png)
 
-- [Demo](https://gbf555136.github.io/Twitch_Project
+- [Demo](https://gbf555136.github.io/Twitch_Project)
 
 - $.Ajax 串接 Twitch API
 
