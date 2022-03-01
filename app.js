@@ -126,7 +126,7 @@ function getColumn(streams, users) {
                 onload="handlePreviewLoad(this)"
               /></a>
               <div class="viewer">
-                <i class="fa-solid fa-user"></i>
+                <i class="fas fa-user"></i>
                 <span>${stream_data.viewer_count}</span>
               </div>
             </div>
