@@ -28,10 +28,6 @@ $(() => {
     let stream_lang = $(e.target).attr("class");
     setLang(stream_lang);
   });
-
-  $(".intro .streamer_name").on("click", (e) => {
-    console.log("123");
-  });
 });
 
 function setLang(lang) {
@@ -66,7 +62,7 @@ function getStreams() {
     },
     success: function (streams) {
       now_index = streams.pagination.cursor;
-      console.log(streams);
+      // console.log(streams);
       getUsers(streams);
     },
     error: function (xhr) {
@@ -134,7 +130,7 @@ function getColumn(streams, users) {
                 <img
                   src="${user_data.profile_image_url}"
                   alt=""
-                  onload="handleTargetLoad(this)"
+                  onload="handleAvatarLoad(this)"
                 />
               </div>
               <div class="intro">
@@ -158,10 +154,12 @@ function getColumn(streams, users) {
 
 function handlePreviewLoad(target) {
   $(target).css("opacity", "1");
+  //img=>a=>preview=>viewer
   let viewer = $(target).parent().parent().children()[1];
+  console.log(viewer);
   $(viewer).css("opacity", "1");
 }
 
-function handleTargetLoad(target) {
+function handleAvatarLoad(target) {
   $(target).css("opacity", "1");
 }
