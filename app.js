@@ -16,7 +16,7 @@ $(() => {
       $(window).scrollTop() + $(window).height() >=
       $(document).height() - 200
     ) {
-      //Anti-shake
+      //debounce
       clearTimeout(timer);
       timer = setTimeout(() => {
         getStreams();
@@ -106,7 +106,6 @@ function getUsers(streams) {
   });
 }
 
-//動態新增
 function getColumn(streams, users) {
   for (const stream_data of streams.data) {
     for (const user_data of users.data) {
